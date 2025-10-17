@@ -1,0 +1,44 @@
+Practical 11: Develop, Build and Deploy a Container Application on Google Compute Engine
+
+Aim:
+To deploy a Docker container application directly on Google Compute Engine (GCE).
+
+Procedure (Detailed Steps):
+
+Prepare and Push Docker Image:
+
+Build and push image to GCR (same as Practical 7).
+
+Create Compute Engine VM:
+
+Go to Compute Engine → VM instances → Create instance.
+
+Name it my-container-vm.
+
+Enable Deploy a container image to this VM.
+
+Configure Container Deployment:
+
+Enter container image URL (e.g., gcr.io/your-project-id/my-web-app:v1).
+
+Configure port mappings if needed.
+
+Launch VM:
+
+Check Allow HTTP/HTTPS traffic → Click Create.
+
+VM will automatically pull and run your container.
+
+Verify Deployment:
+
+Copy External IP and open it in browser.
+
+Optionally SSH into VM and run:
+
+docker ps
+
+
+to verify running container.
+
+Result:
+A Compute Engine VM deployed and ran the container image successfully, demonstrating automated container deployment in GCE.

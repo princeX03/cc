@@ -1,0 +1,76 @@
+Practical 3 — Cloud Storage Bucket & Static Website — Detailed step-by-step explanation
+
+Prepare static website files locally
+
+Create a folder my-website-files/.
+
+Create index.html:
+
+<!DOCTYPE html>
+<html><head><title>My GCP Static Site</title></head>
+<body><h1>Welcome!</h1></body></html>
+
+
+Optionally create 404.html for error handling.
+
+Open Cloud Storage → Buckets
+
+Console → Storage → Browser (Buckets).
+
+Click Create bucket.
+
+Create a new bucket
+
+Bucket name must be globally unique (e.g., prince-my-static-site-2025).
+
+Choose Region (e.g., asia-south1) or multi-region depending on needs.
+
+Choose storage class (Standard is default).
+
+For Access control, choose Uniform (simpler). If you want to make objects public, you will later grant allUsers the Storage Object Viewer role.
+
+Click Create.
+
+Upload website files
+
+Click bucket name → Upload files → select index.html (and 404.html).
+
+Wait for upload to complete.
+
+Make objects public (grant public access)
+
+Bucket → Permissions tab → Grant Access.
+
+Add New principal: allUsers
+
+Role → Cloud Storage → Storage Object Viewer
+
+Save. Confirm you intend to make objects public.
+
+Alternatively, for single objects: in the Objects list click the file → Edit access → Add principal allUsers role Storage Object Viewer.
+
+Configure website settings
+
+Bucket → Configuration (or Website configuration).
+
+Set Index page: index.html
+
+Set 404 page: 404.html (if present)
+
+Save configuration.
+
+Test the static website
+
+On Configuration the console will show a Website URL or you can use:
+
+https://storage.googleapis.com/BUCKET_NAME/index.html
+
+Paste URL in browser and verify the site loads.
+
+If you want a friendly domain, you can set up a Load Balancer + Cloud CDN + SSL or use a custom domain mapping (requires additional steps).
+
+Cleanup (delete bucket)
+
+To avoid storage charges, delete objects and bucket:
+
+In bucket page, click Delete → type bucket name to confirm and delete.

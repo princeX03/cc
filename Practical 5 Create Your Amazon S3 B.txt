@@ -1,0 +1,41 @@
+Practical 5: Create Your Amazon S3 Bucket for Cloud Storage
+
+Aim:
+To create an Amazon S3 (Simple Storage Service) bucket for object storage — used for hosting static websites, backups, and media files.
+
+Procedure (Detailed Steps):
+
+Log in to AWS Console:
+
+Go to AWS Management Console and search for S3.
+
+Create a Bucket:
+
+Click Create bucket.
+
+Give a globally unique name (e.g., my-first-aws-bucket-sept2025).
+
+Choose a region (e.g., Asia Pacific - Mumbai).
+
+Keep default settings and click Create bucket.
+
+Upload Objects:
+
+Click on your new bucket name.
+
+Click Upload and choose files from your computer (e.g., image, text file).
+
+Drag and drop or use file picker to upload.
+
+Manage Access:
+
+By default, S3 objects are private.
+
+To make a file public:
+
+Select the file → click Actions → Make public using ACL → confirm.
+
+Copy the public URL from the Properties tab.
+
+Result:
+An S3 bucket was created in the Mumbai region, files were uploaded, and public access was successfully configured.

@@ -1,0 +1,77 @@
+Practical 4: Connect with Google Cloud DB Service and Run SQL Queries and Analyze DB
+
+Aim:
+To provision and interact with a fully managed relational database in Google Cloud (Cloud SQL for MySQL) and demonstrate basic data definition, manipulation, and analysis using SQL queries.
+
+Procedure (Detailed Steps):
+
+Create a Cloud SQL Instance:
+
+Log in to your Google Cloud Console.
+
+From the left-hand navigation menu, select SQL.
+
+Click Create Instance and choose MySQL as the database engine.
+
+Provide a unique Instance ID (e.g., my-project-sql-db) and set a strong root password.
+
+Choose a region close to you (e.g., asia-south1) and select a development environment for cost-efficiency.
+
+Click Create instance and wait for provisioning (may take several minutes).
+
+Configure Network Access:
+
+After creation, click the instance name to open its overview page.
+
+Go to the Connections tab.
+
+Under Networking, click Add a network.
+
+Name it (e.g., My-Laptop-IP) and enter your current public IP address followed by /32 (for single-host access).
+
+Click Save to authorize secure access.
+
+Connect and Run Queries:
+
+Open Google Cloud Shell (terminal icon on top-right of console).
+
+Connect to the database:
+
+gcloud sql connect my-project-sql-db --user=root
+
+
+Enter your root password when prompted.
+
+At the mysql> prompt, create a new database and table:
+
+CREATE DATABASE customer_data;
+USE customer_data;
+CREATE TABLE customers (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(255),
+  city VARCHAR(255),
+  join_date DATE
+);
+
+
+Insert some data:
+
+INSERT INTO customers (name, city, join_date)
+VALUES ('Alice', 'Mumbai', '2024-01-15'),
+       ('Bob', 'Delhi', '2023-11-20');
+
+
+Run queries to analyze:
+
+SELECT * FROM customers;
+SELECT COUNT(*) FROM customers;
+
+
+Clean Up:
+
+To avoid charges, delete your Cloud SQL instance:
+
+Go back to the SQL page → select your instance → click Delete.
+
+Result:
+A fully managed Cloud SQL for MySQL instance was created and accessed securely. A database and table were created, sample data inserted, and analytical queries executed successfully.

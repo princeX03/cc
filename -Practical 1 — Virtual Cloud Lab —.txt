@@ -1,0 +1,69 @@
+-Practical 1 — Virtual Cloud Lab — Detailed step-by-step explanation
+
+Open the Cloud Skills Boost website
+
+Open your browser and go to https://www.cloudskillsboost.google/.
+
+Make sure pop-ups are allowed for the site (some labs open a new tab).
+
+Sign in with your Google account
+
+Click Sign in (top-right). Use your Google credentials.
+
+If you don’t have an account, click Create account and follow prompts.
+
+After sign-in you’ll see the catalog / dashboard.
+
+Find and start an introductory lab
+
+Use the search box and type the lab name (example: Compute Engine: Qwik Start).
+
+Click the lab tile to open its page.
+
+Read the lab description and prerequisites, then click Start Lab (or Claim lab).
+
+The site will allocate an isolated temporary project and show temporary credentials on the left panel — wait until those appear.
+
+Open Google Cloud Console using lab credentials
+
+In the lab panel there’s a button Open Google Console (or similar). Click it.
+
+A new tab opens to the GCP Console. Use the provided temporary Username and Password from the lab panel if prompted.
+
+Accept any terms/permissions shown. You’re now in an isolated lab Cloud Console.
+
+Create a Virtual Machine instance (example flow)
+
+In the Console, open the navigation menu → Compute Engine → VM instances.
+
+Click Create instance.
+
+Fill required fields:
+
+Name: e.g., my-lab-vm
+
+Region / Zone: keep default the lab suggests
+
+Machine type: choose small (e.g., e2-micro) as lab recommends
+
+Boot disk: default (Debian/Ubuntu) is fine
+
+Firewall: you may check “Allow HTTP traffic” if web server later needed
+
+Click Create. The console will start provisioning.
+
+Verify VM status
+
+On the VM instances list, wait until your VM shows Running with a green dot.
+
+You can click the instance name to view details (internal/external IP, serial port, labels).
+
+Perform the lab tasks (as directed by lab)
+
+Follow the lab’s instructions (SSH into VM, run commands, etc.). The lab usually shows tasks you must complete and may autoscan for completion.
+
+End the lab / cleanup
+
+Return to the Cloud Skills Boost tab and click End Lab or Finish Lab.
+
+Ending the lab will destroy the temporary project and all resources so your personal account isn’t billed.

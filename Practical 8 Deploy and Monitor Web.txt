@@ -1,0 +1,35 @@
+Practical 8: Deploy and Monitor Web App Using Azure App Service
+
+Aim:
+To deploy a web app using Azure App Service and use its monitoring tools.
+
+Procedure (Detailed Steps):
+
+Create App Service:
+
+Log in to Azure Portal.
+
+Search for App Services → Create.
+
+Enter a unique app name, runtime stack (e.g., Node.js 18 LTS), and region (e.g., Central India).
+
+Click Review + create → Create.
+
+Deploy the Application:
+
+Open your App’s overview page.
+
+Go to Deployment Center.
+
+Choose source (e.g., GitHub).
+
+Configure CI/CD pipeline or deploy manually via FTP/local Git.
+
+Monitor the App:
+
+Navigate to Monitoring → Metrics / Live Metrics Stream.
+
+Observe performance indicators like data in/out, requests, and CPU time.
+
+Result:
+The web app was deployed successfully to Azure App Service and monitored in real time using Azure’s built-in analytics tools.

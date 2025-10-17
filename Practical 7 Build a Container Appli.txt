@@ -1,0 +1,38 @@
+Practical 7: Build a Container Application and Upload on Cloud
+
+Aim:
+To containerize a simple application using Docker and push it to a cloud container registry.
+
+Procedure (Detailed Steps):
+
+Create Sample App & Dockerfile:
+
+Create a folder (e.g., my-docker-app).
+
+Add a small app (e.g., app.py).
+
+Create a Dockerfile in the same folder with build instructions.
+
+Build Docker Image:
+
+Open terminal and run:
+
+docker build -t gcr.io/your-project-id/my-web-app:v1 .
+
+
+Authenticate Docker to Cloud Registry:
+
+For Google Cloud:
+
+gcloud auth configure-docker
+
+
+Push Image to Registry:
+
+Push image to GCR:
+
+docker push gcr.io/your-project-id/my-web-app:v1
+
+
+Result:
+A Docker image was built and successfully uploaded to Google Container Registry, ready for cloud deployment.

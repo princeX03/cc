@@ -1,0 +1,51 @@
+Practical 6: Create Amazon EC2 Instances for Windows and Linux
+
+Aim:
+To launch two virtual machines (one Linux and one Windows) on Amazon EC2, showing EC2’s capability to host multiple operating systems.
+
+Procedure (Detailed Steps):
+
+Access EC2 Dashboard:
+
+Log in to AWS Console → search for EC2.
+
+Launch Linux Instance:
+
+Click Launch instance.
+
+Name it my-linux-server.
+
+Choose Ubuntu Server 22.04 LTS (free tier).
+
+Choose instance type t2.micro.
+
+Create or select a key pair for SSH.
+
+Click Launch instance.
+
+Launch Windows Instance:
+
+Repeat the process.
+
+Name it my-windows-server.
+
+Choose a Windows Server AMI (free tier).
+
+Select t2.micro.
+
+Use an existing or new key pair.
+
+Click Launch instance.
+
+Connect to Instances:
+
+Linux: Select → Connect → SSH tab → follow instructions using your key pair.
+
+Windows: Select → Connect → RDP Client → Get Password, decrypt using your private key, then log in using Remote Desktop.
+
+Clean Up:
+
+Select both instances → Instance state → Terminate instance.
+
+Result:
+Two EC2 virtual machines (Linux and Windows) were launched and accessed successfully, demonstrating cross-OS provisioning on AWS.

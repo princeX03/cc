@@ -1,0 +1,101 @@
+Practical 4 — Cloud SQL (MySQL) — Detailed step-by-step explanation
+
+Open Cloud SQL in GCP Console
+
+Console → SQL.
+
+Click Create instance.
+
+Create a MySQL instance
+
+Choose MySQL.
+
+Instance ID: my-gcp-mysql-instance (must be unique in your project).
+
+Root password: set a strong password and note it down.
+
+Choose region close to you (e.g., asia-south1).
+
+Choose machine type: for experimental/dev use small instance (shared-core).
+
+Click Create and wait (takes a few minutes).
+
+Configure network access (authorize client IP)
+
+Open the instance → Connections tab → Add network under Public IP.
+
+Name: HomeIP (or similar).
+
+Network: your public IP in CIDR format like 123.45.67.89/32.
+
+Get your public IP by visiting https://whatismyipaddress.com or searching “what is my ip”.
+
+Save. This allows your IP to connect to the instance.
+
+Connect via Cloud Shell (recommended)
+
+Click the Activate Cloud Shell icon (top-right). Cloud Shell already has gcloud and mysql client enabled.
+
+Run:
+
+gcloud sql connect my-gcp-mysql-instance --user=root --quiet
+
+
+When prompted, enter the root password.
+
+You'll be at a mysql> prompt.
+
+Alternative: Use local mysql client:
+
+mysql --host=PUBLIC_IP --user=root --password
+
+
+(Make sure network authorized and password ready.)
+
+Create database and table; run SQL statements
+
+At mysql> prompt:
+
+CREATE DATABASE customer_db;
+USE customer_db;
+
+CREATE TABLE customers (
+  customer_id INT AUTO_INCREMENT PRIMARY KEY,
+  first_name VARCHAR(50) NOT NULL,
+  last_name VARCHAR(50) NOT NULL,
+  email VARCHAR(100) UNIQUE,
+  registration_date DATE
+);
+
+INSERT INTO customers (first_name, last_name, email, registration_date) VALUES
+  ('Alice','Smith','alice@example.com','2023-01-15'),
+  ('Bob','Johnson','bob@example.com','2023-03-20'),
+  ('Charlie','Brown','charlie@example.com','2024-02-10'),
+  ('Diana','Prince','diana@example.com','2023-05-01');
+
+SELECT * FROM customers;
+SELECT first_name, last_name FROM customers WHERE registration_date > '2023-04-01';
+SELECT COUNT(*) AS total_customers FROM customers;
+
+
+Review outputs for inserted rows and query results.
+
+Exit MySQL and Cloud Shell
+
+Type exit; at the mysql> prompt.
+
+In Cloud Shell type exit again to close the shell session (optional).
+
+Secure & clean up
+
+If you created the instance for lab/demo, delete it to avoid charges:
+
+Console → SQL → select instance → Delete → type instance ID to confirm.
+
+If you plan to keep it, follow best practices:
+
+Do not use root for applications; create dedicated DB users with least privilege.
+
+Use private IP and Cloud SQL Proxy for production to avoid public IP exposure.
+
+Enable automated backups and maintenance windows.

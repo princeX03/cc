@@ -1,0 +1,94 @@
+Practical 2 — Create Cloud VM & Deploy Nginx — Detailed step-by-step explanation
+
+Access Google Cloud Platform and sign in
+
+Go to https://console.cloud.google.com.
+
+Sign in with your Google Account. Confirm billing is enabled if using a persistent project (free tier credits may require billing setup).
+
+Create/select a GCP project
+
+In the top-left project selector click New Project (if needed).
+
+Name it (e.g., MyPersistentVMProject) and click Create.
+
+Wait a few seconds, then ensure that project is selected in the top bar.
+
+Open Compute Engine → VM instances
+
+Menu → Compute Engine → VM instances.
+
+If Compute Engine API is not enabled, the console will prompt to enable it — accept and wait for it to initialize.
+
+Create a VM instance
+
+Click Create instance.
+
+Configure:
+
+Name: my-permanent-web-vm
+
+Region/Zone: choose nearest (e.g., asia-south1-a)
+
+Machine configuration: Series E2, machine type e2-micro for free-tier eligibility
+
+Boot disk: Click Change, choose Debian/Ubuntu LTS, set disk size (e.g., 10–30 GB)
+
+Identity and API access: default is fine
+
+Firewall: Check Allow HTTP traffic and Allow HTTPS traffic if hosting a website
+
+Click Create — provisioning begins; wait until instance shows Running.
+
+Connect to the VM via SSH
+
+In VM list, click the SSH button (it may say “SSH” or an arrow dropdown).
+
+Choose Open in browser window to get a web-based terminal.
+
+Alternatively use gcloud compute ssh my-permanent-web-vm --zone=ZONE from Cloud Shell or your local machine (requires gcloud SDK & auth).
+
+Update packages and install Nginx
+
+In the SSH terminal run:
+
+sudo apt update
+sudo apt install nginx -y
+sudo systemctl enable nginx
+sudo systemctl start nginx
+sudo systemctl status nginx
+
+
+systemctl status will show service active (running). Press q to exit status output.
+
+Verify web server is accessible
+
+In the VM details page, copy External IP.
+
+Open a new browser tab and paste http://EXTERNAL_IP/.
+
+You should see the Nginx default page (“Welcome to nginx!”). If not:
+
+Ensure firewall allowed HTTP in VM settings.
+
+Check sudo ufw status (Ubuntu) or GCP firewall rules.
+
+Ensure Nginx is running: sudo systemctl status nginx.
+
+Optional: Deploy your site files
+
+Upload content to /var/www/html/ (via scp, or by editing files with nano/vim):
+
+sudo tee /var/www/html/index.html <<'EOF'
+<!DOCTYPE html><html><body><h1>My GCP Site</h1></body></html>
+EOF
+sudo chown www-data:www-data /var/www/html/index.html
+
+
+Refresh the browser to see updated page.
+
+Clean up (delete VM)
+
+When finished, go to VM instances list, tick the checkbox next to my-permanent-web-vm and click Delete.
+
+Confirm deletion to stop billing.

@@ -1,0 +1,33 @@
+Practical 9: Sign Up and Explore Azure ML Studio
+
+Aim:
+To explore Azure ML Studio and create an automated ML pipeline using its graphical interface.
+
+Procedure (Detailed Steps):
+
+Create an ML Workspace:
+
+In Azure Portal, search Machine Learning → Create workspace.
+
+Once done, click Launch Studio.
+
+Upload Dataset:
+
+In Azure ML Studio → Data → Create.
+
+Upload a sample dataset (e.g., Iris dataset).
+
+Create Automated ML Job:
+
+Select Automated ML → New job.
+
+Choose dataset → define target column → choose task type (Classification/Regression).
+
+Click Finish to start training.
+
+Review Results:
+
+Check Run details → Models tab to view model leaderboard and metrics.
+
+Result:
+An ML pipeline was created and executed automatically, with multiple models trained and compared without manual coding.

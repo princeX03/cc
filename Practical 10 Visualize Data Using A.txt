@@ -1,0 +1,31 @@
+Practical 10: Visualize Data Using Amazon QuickSight
+
+Aim:
+To use Amazon QuickSight to visualize and analyze datasets from cloud sources.
+
+Procedure (Detailed Steps):
+
+Access QuickSight:
+
+Log in to AWS → search QuickSight → sign up if needed.
+
+Connect to Data Source:
+
+Click New analysis → New dataset.
+
+Choose data source (e.g., S3, Athena, or sample dataset).
+
+Create Analysis:
+
+Select visual type (bar chart, pie chart, etc.).
+
+Drag and drop fields (e.g., Category → X-axis, Sales → Y-axis).
+
+Create Dashboard:
+
+Click Share → Publish dashboard.
+
+Name and publish for others to view.
+
+Result:
+QuickSight visualizations and dashboards were created successfully, providing clear data insights.
